@@ -23,6 +23,11 @@ public class Card {
         return faceName;
     }
 
+    public static List<String> getFaceNames(){
+        return Arrays.asList("two","three","four","five","six","seven","eight","nine",
+                "ten","jack","queen","king","ace");
+    }
+
     /**
      * This method will validate
      * @param faceName - this is a String to represent the name of the card
@@ -30,8 +35,7 @@ public class Card {
 
     public void setFaceName(String faceName) {
         faceName = faceName.toLowerCase();
-        List<String> faceNames = Arrays.asList("two","three","four","five","six","seven","eight","nine",
-                                               "ten","jack","queen","king","ace");
+        List<String> faceNames = getFaceNames();
 
         if (faceNames.contains(faceName))
             this.faceName = faceName;
@@ -43,6 +47,11 @@ public class Card {
         return suit;
     }
 
+
+    /**
+     *
+     * @param suit
+     */
     public void setSuit(String suit) {
         suit = suit.toLowerCase();
         List<String> validSuits = Arrays.asList("hearts","diamonds","spades","clubs");
@@ -50,6 +59,27 @@ public class Card {
             this.suit = suit;
         else
             throw new IllegalArgumentException(suit + " is not valid. Use of of " + validSuits);
+    }
+
+    /**
+     * This method will return the String "red" if the card's suit is heards or diamonds,
+     * "black" otherwise
+     * @return
+     */
+    public String getCardColour(){
+        if (suit.equals("hearts") || suit.equals("diamonds"))
+            return "red";
+        else
+            return "black";
+    }
+
+    /**
+     * This method will return the value of the card. 2 = 2, 3=3.. 10=10, king = 13..
+     * @return
+     */
+    public int getFaceValue(){
+        // the first face name in the list (position 0) is "two" so we add 2 to the index(or position) of each card
+        return getFaceNames().indexOf(faceName) + 2;
     }
 
     public String toString(){
