@@ -16,14 +16,27 @@ public class Card {
     public Card(String faceName, String suit){
         this.faceName = faceName;
         setSuit(suit);
+        setFaceName(faceName);
     }
 
     public String getFaceName() {
         return faceName;
     }
 
+    /**
+     * This method will validate
+     * @param faceName - this is a String to represent the name of the card
+     */
+
     public void setFaceName(String faceName) {
-        this.faceName = faceName;
+        faceName = faceName.toLowerCase();
+        List<String> faceNames = Arrays.asList("two","three","four","five","six","seven","eight","nine",
+                                               "ten","jack","queen","king","ace");
+
+        if (faceNames.contains(faceName))
+            this.faceName = faceName;
+        else
+            throw new IllegalArgumentException(faceName + " is not valid, use " + faceNames);
     }
 
     public String getSuit() {

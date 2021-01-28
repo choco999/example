@@ -5,7 +5,7 @@ public class CardExperiment {
         // Datatype  variable name   calling the constructor and passing in System.in
         Scanner       keyboard = new Scanner(System.in);
         Card          aceOfSpades = new Card("ace","spades");
-        Card          jesseOfMid = new Card("Jesse","Hearts");
+        Card          jesseOfMid = new Card("ten","Hearts");
 
         jesseOfMid.setSuit("hearts"); //valid
         jesseOfMid.setSuit("Diamonds");
